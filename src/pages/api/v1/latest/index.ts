@@ -19,7 +19,7 @@ export default async (req: NowRequest, res: NowResponse) => {
     base_code: data.base_code,
     conversion_rates: data.conversion_rates,
   };
-  if (clean === "true") {
+  if (clean === "true" || "1") {
     res.statusCode = 200;
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.json(data.conversion_rates);
