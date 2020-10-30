@@ -8,7 +8,7 @@ export default function Home() {
     e.preventDefault();
     router.push("api/v1/latest?base=USD");
   };
-  handleRedirect
+  handleRedirect;
   return (
     <div className={styles.container}>
       <Head>
@@ -20,8 +20,6 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="/">CambioCurrency API!</a>
         </h1>
-
-        <p className={styles.description}>Redirecting...</p>
       </main>
     </div>
   );
