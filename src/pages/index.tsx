@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="/api/v6/latest?base=USD">CambioCurrency API!</a>
+          Welcome to <a href="/api/v1/latest?base=USD">CambioCurrency API!</a>
         </h1>
       </main>
     </div>
