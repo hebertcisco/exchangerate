@@ -1,12 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { useRouter } from "next/router";
 
 export default function Home() {
-  const router = useRouter();
-
-  router.push("/api/v1/latest?base=USD");
-
   return (
     <div className={styles.container}>
       <Head>
@@ -16,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="/">CambioCurrency API!</a>
+          Welcome to <a href="/api/v6/latest?base=USD">CambioCurrency API!</a>
         </h1>
       </main>
     </div>
