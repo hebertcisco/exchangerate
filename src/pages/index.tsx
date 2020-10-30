@@ -4,11 +4,9 @@ import { useRouter } from "next/router";
 
 export default function Home() {
   const router = useRouter();
-  const handleRedirect = (e) => {
-    e.preventDefault();
-    router.push("api/v1/latest?base=USD");
-  };
-  handleRedirect;
+
+  router.push("/api/v1/latest?base=USD");
+
   return (
     <div className={styles.container}>
       <Head>
