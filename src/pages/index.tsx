@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import openWindow from "../utils/openWindow";
 
 export default function Home() {
-  openWindow("/api/v6/latest?base=USD");
+  openWindow("/api/v1/latest?base=USD");
   return (
     <div className={styles.container}>
       <Head>
