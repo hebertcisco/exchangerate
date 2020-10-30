@@ -1,9 +1,14 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import openWindow from "../utils/openWindow";
+import { useRouter } from "next/router";
 
 export default function Home() {
-  openWindow("/api/v1/latest?base=USD");
+  const router = useRouter();
+  const handleRedirect = (e) => {
+    e.preventDefault();
+    router.push("api/v1/latest?base=USD");
+  };
+  handleRedirect
   return (
     <div className={styles.container}>
       <Head>
