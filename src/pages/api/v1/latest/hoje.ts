@@ -9,7 +9,11 @@ export default async (req: NowRequest, res: NowResponse) => {
     `${process.env.BASE_URL}/${process.env.API_KEY}/latest/${base}`
   );
   const data: IExchangeRate = await response.json();
-
+  if (base === null) {
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json; charset=utf-8");
+    res.json(data.conversion_rates);
+  }
   switch (b2b) {
     case "AED":
       res.statusCode = 200;

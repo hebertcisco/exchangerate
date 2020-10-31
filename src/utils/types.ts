@@ -72,3 +72,8 @@ export interface IInfoFooter {
   title: string;
   image: string;
 }
+export interface IDolarTodayDefault {
+  default: string;
+  base: string;
+  BRL: string;
+}
