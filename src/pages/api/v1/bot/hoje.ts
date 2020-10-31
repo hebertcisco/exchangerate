@@ -10,12 +10,21 @@ export default async (req: NowRequest, res: NowResponse) => {
   const conversion_rates: IConversionRates = await response_conversion_rates.json();
 
   const bot = new Telegraf(process.env.BOT_TOKEN);
-  let message = `1 dólar está à R$${conversion_rates.BRL} na cotação atual.`;
-  bot.command("dolarhoje", ({ reply }) => reply(message));
+  let message = `1 dólar está à *R$${conversion_rates.BRL}* na cotação atual.`;
 
-  bot.launch();
+  bot.context.db = {
+    getScores: () => {
+      return 42;
+    },
+  };
+
+  bot.command("start", (ctx) =>
+    ctx.replyWithMarkdown(`Olá, _${ctx.message.from.username}_, seja bem vindo`)
+  );
+  bot.command("dolarhoje", (ctx) => ctx.replyWithMarkdown(message));
 
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.json({ message: message });
+  bot.launch();
 };

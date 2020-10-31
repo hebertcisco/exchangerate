@@ -21,6 +21,7 @@
     "redis": "^3.0.2",
     "styled-components": "^5.2.0",
     "telegraf": "^3.38.0",
+    "telegraf-session-redis": "^5.1.0",
     "uuidv4": "^6.2.4"
   },
   "devDependencies": {
