@@ -1,13 +1,10 @@
-const fetch = require("node-fetch");
 const { Telegraf } = require("telegraf");
 
+const exchangeRateModel = require("../database/schemas/ExchangeRateModel");
 class TelegramController {
   async dolarhoje() {
-    const response_conversion_rates = await fetch(
-      `https://ccurrencybot.now.sh/api/v1/latest/hoje?base=${"USD"}`
-    );
-    const conversion_rates = await response_conversion_rates.json();
-    const brl = conversion_rates.BRL;
+    const conversion_rates = await exchangeRateModel.find({});
+    const brl = conversion_rates[0].BRL;
     const bot = new Telegraf(process.env.ER_TELEGRAM_API_KEY);
     let message = `1 ${"USD"} está à *R$${brl.slice(0, 4)}* na cotação atual.`;
 
