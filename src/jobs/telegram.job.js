@@ -2,7 +2,7 @@ const CronJob = require("cron").CronJob;
 const telegramController = require("../controllers/TelegramController");
 
 module.exports = new CronJob(
-  "*/2 * * * * *",
+  "*/3 * * * * *",
   async () => {
     await telegramController.dolarhoje();
   },
