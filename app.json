@@ -1,0 +1,6 @@
+{
+  "name": "exchangerate",
+  "description": "exchangerate developed with Nodejs and Vercel.",
+  "repository": "https://github.com/hebertcisco/exchangerate",
+  "keywords": ["exchangerate"]
+}
