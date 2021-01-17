@@ -12,8 +12,7 @@ routes.get("/v1/status", async (req, res) => {
 });
 
 routes.get("/v1/rates", async (req, res) => {
-  const { base } = req.query;
-  await exchangeRateController.read(req, res, base);
+  await exchangeRateController.read(req, res);
 });
 
 module.exports = routes;
