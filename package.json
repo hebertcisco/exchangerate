@@ -1,32 +1,49 @@
 {
-  "name": "CambioCurrency",
-  "version": "0.1.0",
-  "private": true,
+  "name": "exchangerate",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "src/server.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "tsc"
   },
+  "bin": {
+    "exchangerate": "bin/server"
+  },
+  "engines": {
+    "node": ">= 10"
+  },
+  "files": [
+    "bin",
+    "gulpfile.js",
+    "public",
+    "src"
+  ],
   "dependencies": {
-    "@vercel/node": "^1.8.4",
-    "@zeit/next-css": "^1.0.1",
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
+    "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "firebase": "^7.24.0",
-    "next": "9.5.5",
-    "react": "16.14.0",
-    "react-content-loader": "^5.1.3",
-    "react-dom": "16.14.0",
+    "cron": "^1.8.2",
+    "dotenv": "^8.0.0",
+    "exchange-rates-api": "^1.0.2",
+    "express": "^4.17.1",
+    "firebase": "^8.2.1",
+    "iconv-lite": "^0.5.0",
+    "mongoose": "^5.6.7",
+    "node-fetch": "^2.6.0",
     "redis": "^3.0.2",
-    "styled-components": "^5.2.0",
+    "slugify": "^1.3.5",
     "telegraf": "^3.38.0",
     "telegraf-session-redis": "^5.1.0",
     "uuidv4": "^6.2.4"
   },
   "devDependencies": {
-    "@types/node": "^14.11.10",
-    "@types/react": "^16.9.53",
-    "typescript": "^4.0.3"
+    "nodemon": "^2.0.6",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "^1.18.2"
   }
 }
