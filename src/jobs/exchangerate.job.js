@@ -3,20 +3,81 @@ const exchangeRateModel = require("../database/schemas/ExchangeRateModel");
 const { exchangeRates } = require("exchange-rates-api");
 
 module.exports = new CronJob(
-  "0 */1  * ** *",
+  "*/7 *  * * * *",
   async () => {
-    const { CAD, BRL, EUR, USD } = await exchangeRates()
+    const {
+      CAD,
+      HKD,
+      ISK,
+      PHP,
+      DKK,
+      HUF,
+      CZK,
+      AUD,
+      RON,
+      SEK,
+      IDR,
+      INR,
+      BRL,
+      RUB,
+      HRK,
+      JPY,
+      THB,
+      CHF,
+      SGD,
+      PLN,
+      BGN,
+      TRY,
+      CNY,
+      NOK,
+      NZD,
+      ZAR,
+      USD,
+      MXN,
+      ILS,
+      GBP,
+      KRW,
+      MYR,
+    } = await exchangeRates()
       .latest()
-      .base("USD")
+      .base("BRL")
       .fetch();
     console.log("Updating...");
     await exchangeRateModel.findOneAndUpdate(
       { _id: process.env.MONGODB_TABLE },
       {
         CAD,
+        HKD,
+        ISK,
+        PHP,
+        DKK,
+        HUF,
+        CZK,
+        AUD,
+        RON,
+        SEK,
+        IDR,
+        INR,
         BRL,
-        EUR,
+        RUB,
+        HRK,
+        JPY,
+        THB,
+        CHF,
+        SGD,
+        PLN,
+        BGN,
+        TRY,
+        CNY,
+        NOK,
+        NZD,
+        ZAR,
         USD,
+        MXN,
+        ILS,
+        GBP,
+        KRW,
+        MYR,
       }
     );
   },
