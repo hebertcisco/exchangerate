@@ -3,7 +3,7 @@ const exchangeRateModel = require("../database/schemas/ExchangeRateModel");
 const { exchangeRates } = require("exchange-rates-api");
 
 module.exports = new CronJob(
-  "0 0 0 */1 * *",
+  "0 */1  * ** *",
   async () => {
     const { CAD, BRL, EUR, USD } = await exchangeRates()
       .latest()
