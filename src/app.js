@@ -7,7 +7,7 @@ const routes = require("./routes");
 
 require("./database");
 
-require("./jobs/exchangerate.job");
+//require("./jobs/exchangerate.job");
 require("./jobs/telegram.job");
 
 const app = express();
